@@ -83,6 +83,7 @@ export function buildDpsXml(p: EmitParams): string {
           ...(p.inscricaoMunicipal ? { IM: p.inscricaoMunicipal } : {}),
           regTrib: {
             opSimpNac: p.optanteSimplesNacional ? "3" : "1",
+            ...(p.optanteSimplesNacional ? { regApTribSN: "1" } : {}),
             regEspTrib: p.regimeEspecial || "0",
           },
         },
