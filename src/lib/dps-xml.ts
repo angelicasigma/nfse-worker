@@ -76,7 +76,7 @@ export function buildDpsXml(p: EmitParams): string {
         nDPS: p.numeroDps,
         dCompet: `${p.competencia}-01`,
         tpEmit: "1",
-        finNFSe: "0",
+        ...(p.ambiente === "homologacao" ? { finNFSe: "0" } : {}),
         cLocEmi: p.codigoMunicipio,
         prest: {
           CNPJ: p.cnpjPrestador,
